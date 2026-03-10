@@ -4,19 +4,32 @@ public class PalindromeCheckerApp {
 
         System.out.println("Palindrome Checker Application");
 
-        String original = "racecar";
-        String reversed = "";
+        String word = "madam";
 
-        // Reverse string using loop
-        for(int i = original.length() - 1; i >= 0; i--) {
-            reversed = reversed + original.charAt(i);
+        // Convert string to char array
+        char[] chars = word.toCharArray();
+
+        int start = 0;
+        int end = chars.length - 1;
+
+        boolean isPalindrome = true;
+
+        // Two pointer comparison
+        while(start < end) {
+
+            if(chars[start] != chars[end]) {
+                isPalindrome = false;
+                break;
+            }
+
+            start++;
+            end--;
         }
 
-        // Compare original and reversed
-        if(original.equals(reversed)) {
-            System.out.println(original + " is a Palindrome");
+        if(isPalindrome) {
+            System.out.println(word + " is a Palindrome");
         } else {
-            System.out.println(original + " is NOT a Palindrome");
+            System.out.println(word + " is NOT a Palindrome");
         }
 
     }
