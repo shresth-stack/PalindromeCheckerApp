@@ -1,21 +1,24 @@
 public class PalindromeCheckerApp {
 
-    public static void main(String[] args) {
-
-        String sentence = "Nurses Run";
-
-        String processed = sentence.replaceAll("\\s+", "").toLowerCase();
+    public static boolean checkPalindrome(String word) {
 
         String reversed = "";
 
-        for (int i = processed.length() - 1; i >= 0; i--) {
-            reversed += processed.charAt(i);
+        for (int i = word.length() - 1; i >= 0; i--) {
+            reversed += word.charAt(i);
         }
 
-        if (processed.equals(reversed))
-            System.out.println(sentence + " is a Palindrome");
+        return word.equals(reversed);
+    }
+
+    public static void main(String[] args) {
+
+        String word = "madam";
+
+        if (checkPalindrome(word))
+            System.out.println(word + " is a Palindrome");
         else
-            System.out.println(sentence + " is NOT a Palindrome");
+            System.out.println(word + " is NOT a Palindrome");
 
     }
 }
