@@ -1,6 +1,6 @@
 public class PalindromeCheckerApp {
 
-    public static boolean checkPalindrome(String word) {
+    static boolean reverseStrategy(String word) {
 
         String reversed = "";
 
@@ -11,11 +11,28 @@ public class PalindromeCheckerApp {
         return word.equals(reversed);
     }
 
+    static boolean twoPointerStrategy(String word) {
+
+        int start = 0;
+        int end = word.length() - 1;
+
+        while (start < end) {
+
+            if (word.charAt(start) != word.charAt(end))
+                return false;
+
+            start++;
+            end--;
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
 
-        String word = "madam";
+        String word = "level";
 
-        if (checkPalindrome(word))
+        if (twoPointerStrategy(word))
             System.out.println(word + " is a Palindrome");
         else
             System.out.println(word + " is NOT a Palindrome");
