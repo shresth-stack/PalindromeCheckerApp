@@ -1,6 +1,6 @@
 public class PalindromeCheckerApp {
 
-    static boolean reverseStrategy(String word) {
+    static boolean reverseMethod(String word) {
 
         String reversed = "";
 
@@ -11,7 +11,7 @@ public class PalindromeCheckerApp {
         return word.equals(reversed);
     }
 
-    static boolean twoPointerStrategy(String word) {
+    static boolean twoPointerMethod(String word) {
 
         int start = 0;
         int end = word.length() - 1;
@@ -30,12 +30,18 @@ public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String word = "level";
+        String word = "racecar";
 
-        if (twoPointerStrategy(word))
-            System.out.println(word + " is a Palindrome");
-        else
-            System.out.println(word + " is NOT a Palindrome");
+        long start1 = System.nanoTime();
+        reverseMethod(word);
+        long end1 = System.nanoTime();
+
+        long start2 = System.nanoTime();
+        twoPointerMethod(word);
+        long end2 = System.nanoTime();
+
+        System.out.println("Reverse Method Time: " + (end1 - start1));
+        System.out.println("Two Pointer Method Time: " + (end2 - start2));
 
     }
 }
